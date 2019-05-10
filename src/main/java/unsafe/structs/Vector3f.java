@@ -24,6 +24,10 @@ public class Vector3f implements Struct {
         return internalMemoryBlock;
     }
 
+    public void setX(long offset, float value) {
+        UnsafeHelper.getUnsafe().putFloat(internalMemoryBlock + offset * 4, value);
+    }
+
     public float getX() {
         return UnsafeHelper.getUnsafe().getFloat(internalMemoryBlock);
     }

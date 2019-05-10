@@ -20,7 +20,7 @@ public class MemoryAllocator {
     private static final String DOUBLE = "double";
 
     public static Struct allocateMemory(Class<? extends Struct> runtimeStruct) {
-        Struct struct = null;
+                Struct struct = null;
         try {
             struct = runtimeStruct.getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

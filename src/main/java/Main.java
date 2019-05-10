@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Vector3f vector = (Vector3f) MemoryAllocator.allocateMemory(Vector3f.class);
 
+        vector.setX(0, 9.8f);
+
         System.out.println(vector.getX());
         System.out.println(vector.getY());
 
