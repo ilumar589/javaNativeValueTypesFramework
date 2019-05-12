@@ -2,6 +2,8 @@ package unsafe.structs;
 
 import unsafe.util.UnsafeHelper;
 
+import java.io.IOException;
+
 @NativeAlloc
 public class Vector3f implements Struct {
 
@@ -34,5 +36,10 @@ public class Vector3f implements Struct {
 
     public float getY() {
         return UnsafeHelper.getUnsafe().getFloat(internalMemoryBlock, 2L);
+    }
+
+    @Override
+    public void close() throws IOException {
+        UnsafeHelper.getUnsafe().freeMemory(internalMemoryBlock);
     }
 }

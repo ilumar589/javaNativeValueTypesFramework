@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class MemoryAllocator {
+public class StructMemoryAllocator {
 
     private static final String INTERNAL_MEMORY = "internalMemoryBlock";
     private static final String BYTE = "byte";
@@ -20,7 +20,7 @@ public class MemoryAllocator {
     private static final String DOUBLE = "double";
 
     public static Struct allocateMemory(Class<? extends Struct> runtimeStruct) {
-                Struct struct = null;
+        Struct struct = null;
         try {
             struct = runtimeStruct.getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {

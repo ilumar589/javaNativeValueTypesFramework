@@ -1,18 +1,23 @@
 // https://highlyscalable.wordpress.com/2012/02/02/direct-memory-access-in-java/
 
 import unsafe.structs.Vector3f;
-import unsafe.util.MemoryAllocator;
+import unsafe.util.StructMemoryAllocator;
+
+import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) {
-        Vector3f vector = (Vector3f) MemoryAllocator.allocateMemory(Vector3f.class);
+        try {
+            try(Vector3f vector = (Vector3f) StructMemoryAllocator.allocateMemory(Vector3f.class)) {
+                vector.setX(0, 9.8f);
 
-        vector.setX(0, 9.8f);
+                System.out.println(vector.getX());
+                System.out.println(vector.getY());
 
-        System.out.println(vector.getX());
-        System.out.println(vector.getY());
-
-        MemoryAllocator.freeMemory(vector);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

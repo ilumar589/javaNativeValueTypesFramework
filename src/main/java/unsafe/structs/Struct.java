@@ -1,6 +1,8 @@
 package unsafe.structs;
 
-public interface Struct {
+import java.io.Closeable;
+
+public interface Struct extends Closeable {
 
     int getPositionInMemory();
 
