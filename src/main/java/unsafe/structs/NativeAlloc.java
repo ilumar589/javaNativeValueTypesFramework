@@ -8,6 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD})
 public @interface NativeAlloc {
-    int order() default -1;
     int size() default -1;
 }
